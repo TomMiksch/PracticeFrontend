@@ -1,31 +1,34 @@
-import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
+import {createComponentFactory, Spectator} from '@ngneat/spectator';
+import {ApiService} from './services/api.service';
+import {MockService} from 'ng-mocks';
 
 describe('AppComponent', () => {
+  let spectator: Spectator<AppComponent>;
+  let apiServiceSpy;
+  const createComponent = createComponentFactory({
+    component: AppComponent,
+    mocks: [
+      ApiService
+    ]
+  });
+
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
+    apiServiceSpy = spyOn(MockService(ApiService), 'getIngredients');
+    const apiService = spectator.inject(ApiService);
+    apiService.getIngredients.andReturn('');
+    spectator = createComponent();
   });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(spectator).toBeTruthy();
   });
 
-  it(`should have as title 'PracticeFrontend'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('PracticeFrontend');
+  it('should display Hello World', () => {
+    expect(spectator.element.textContent).toEqual('Hello, World!');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('PracticeFrontend app is running!');
+  it('should call the backend', () => {
+    expect(apiServiceSpy).toHaveBeenCalled();
   });
 });

@@ -1,0 +1,8 @@
+[0104/124937.313:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[0104/140906.274:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\thoma\AppData\Local\Temp\karma-25811881\Crashpad\attachments\a2d8f759-5730-4af2-94e3-c96bbdb183e6: The system cannot find the path specified. (0x3)
+[0105/093731.674:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\thoma\AppData\Local\Temp\karma-66501531\Crashpad\attachments\b0337af6-3f38-4039-90c8-5a17c45c10c4: The system cannot find the path specified. (0x3)
+[0105/094439.581:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\thoma\AppData\Local\Temp\karma-48339553\Crashpad\attachments\98eeea7a-0d8f-4207-aad4-99b48136b570: The system cannot find the path specified. (0x3)
+[0105/095436.528:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\thoma\AppData\Local\Temp\karma-62701312\Crashpad\attachments\0d0da28a-bf13-48c7-ac2f-2f6d9212a264: The system cannot find the path specified. (0x3)
+[0105/100234.575:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\thoma\AppData\Local\Temp\karma-36035127\Crashpad\attachments\26e6335b-4da2-4f59-b87b-bc9b7cfccda9: The system cannot find the path specified. (0x3)
+[0105/101629.399:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[0105/111037.282:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\thoma\AppData\Local\Temp\karma-29152238\Crashpad\attachments\91faa072-ba19-4c17-bcdf-31c87ca2286c: The system cannot find the path specified. (0x3)
