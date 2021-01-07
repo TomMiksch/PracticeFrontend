@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from './services/api.service';
+import {MassType} from './Interfaces/MassType';
+import {Ingredient} from './Interfaces/Ingredient';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +12,13 @@ export class AppComponent implements OnInit{
 
   constructor(private apiService: ApiService) { }
 
+  ingredients: Ingredient[] = [];
+
   ngOnInit(): void {
-    this.apiService.getIngredients().subscribe(data => {
-      console.log(data);
+    this.apiService.getIngredients().subscribe(ingredients => {
+      ingredients.forEach(ingredient => {
+        this.ingredients.push(ingredient);
+      });
     });
   }
 

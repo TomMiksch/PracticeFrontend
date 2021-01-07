@@ -1,1 +1,17 @@
-<p>Hello, World!</p>
+<h1>Ingredients Page</h1>
+<table>
+  <tr class="ingredients-table__header">
+    <th class="ingredients-name__header">INGREDIENT</th>
+    <th class="ingredients-amount__header">AMOUNT</th>
+    <th class="ingredients-massUnit__header">MASS UNIT</th>
+    <th class="ingredients-massType__header">MASS TYPE</th>
+  </tr>
+  <tbody class="ingredients-table__body">
+    <tr *ngFor="let ingredient of this.ingredients">
+      <th class="ingredients-name__row">{{ingredient.name}}</th>
+      <th class="ingredients-amount__row">{{ingredient.amount}}</th>
+      <th class="ingredients-massUnit__row">{{ingredient.massUnit}}</th>
+      <th class="ingredients-massType__row">{{ingredient.massType}}</th>
+    </tr>
+  </tbody>
+</table>

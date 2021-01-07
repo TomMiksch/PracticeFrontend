@@ -1,19 +1,20 @@
 import {ApiService} from './api.service';
-import {createServiceFactory, SpectatorService} from '@ngneat/spectator';
-import {HttpClient, HttpHandler} from '@angular/common/http';
+import {createHttpFactory, HttpMethod, SpectatorHttp} from '@ngneat/spectator';
 
 describe('ApiService', () => {
-  let service: SpectatorService<ApiService>;
-  const createService = createServiceFactory({
-    service: ApiService,
-    providers: [HttpClient, HttpHandler]
-  });
+  let service: SpectatorHttp<ApiService>;
+  const createHttp = createHttpFactory(ApiService);
 
   beforeEach(() => {
-    service = createService();
+    service = createHttp();
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
+  });
+
+  it('should call getIngredients', () => {
+    service.service.getIngredients().subscribe();
+    service.expectOne('http://localhost:8080/api/', HttpMethod.GET);
   });
 });
